@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>TO DO</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">TO DO LIST</h1>
+    </div>
+    <div class="container"">
+        <div class="row">
+            <p class="text">Description: {{to_do.description}}</p>
+            <p class="text">Status: {{to_do.status}}</p>
+            <p class="text">Deadline: {{to_do.deadline}}</p>
+            <p class="text">Detail: {{to_do.full_description}}</p>
+        </div>
+        <a class="add_link" href="/">RETURN TO MAIN PAGE</a>
+    </div>
+    
+</body>
+</html>
