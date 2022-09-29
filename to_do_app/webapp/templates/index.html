@@ -19,10 +19,10 @@
             <p class="text">Status: {{action.status}}</p>
             <p class="text">Deadline: {{action.deadline}}</p>
             <a class="delete_link" href="/to_do/{{action.pk}}">Detail</a>
-            <a class="delete_link" href="/delete?pk={{action.pk}}">Delete</a>
+            <a class="delete_link" href="/delete/{{action.pk}}">Delete</a>
         </div>
         {%endfor%}
-        <a class="add_link" href="/add">ADD NEW ACTION</a>
+        <a class="add_link" href="{% url 'add_to_do'%}">ADD NEW ACTION</a>
     </div>
     
 </body>
