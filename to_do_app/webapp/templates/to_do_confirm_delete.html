@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Are you realy want to delete?</h1>
+    <p>{{to_do.description}}</p>
+    <p>{{to_do.status}}</p>
+    <p>{{to_do.deadline}}</p>
+    <p>{{to_do.full_description}}</p>
+    <form action="{% url 'confirm_delete_to_do' to_do.pk %}">
+        <input type="submit" value="Yes">
+        <a href="{% url 'index'%}">No</a>
+    </form>
+</body>
+</html>

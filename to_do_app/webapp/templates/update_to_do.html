@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Add page</title>
+</head>
+<body>
+    <div class="container">
+        <h1>ADD TO DO</h1>
+    </div>
+    <div class="container">
+        <form action="/add/" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <p>Description</p>
+                <input class="description_input" type="text" value="{{to_do.description}}" name="description">
+            </div>
+            <div class="row">
+                <p>Status</p>
+                <select class="status_select" name="status">
+                    {% if to_do.status == 'new'%}
+                        <option value="new">new</option>
+                    {% elif to_do.status == 'in process'%}
+                        <option value="in process">in process</option>
+                    {% else %}
+                        <option value="done">done</option>
+                    {% endif %}
+                </select>
+            </div>
+            <div class="row">
+                <p>Deadline</p>
+                <input class="deadline_input" type="date" value="{{to_do.deadline}}" name="deadline">
+            </div>
+            <div class="row">
+                <p>Full Description</p>
+                <input class="full_description_input" value="{{to_do.full_description}}" type="text" name="full_description">
+            </div>
+            <button class="create_button" type="submit">Create</button>
+        </form>
+    </div>
+</body>
+</html>

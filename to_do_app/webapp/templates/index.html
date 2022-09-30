@@ -17,9 +17,14 @@
         <div class="row">
             <p class="text">Description: {{action.description}}</p>
             <p class="text">Status: {{action.status}}</p>
-            <p class="text">Deadline: {{action.deadline}}</p>
+            {%if not action.deadline%}
+                <p></p>
+            {%else%}
+                <p class="text">Deadline: {{action.deadline}}</p>
+            {% endif %}
             <a class="delete_link" href="/to_do/{{action.pk}}">Detail</a>
             <a class="delete_link" href="/delete/{{action.pk}}">Delete</a>
+            <a class="delete_link" href="/to_do/{{action.pk}}/edit">Edit</a>
         </div>
         {%endfor%}
         <a class="add_link" href="{% url 'add_to_do'%}">ADD NEW ACTION</a>
