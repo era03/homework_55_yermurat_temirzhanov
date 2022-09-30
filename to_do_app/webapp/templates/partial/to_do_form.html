@@ -1,0 +1,24 @@
+<form action="/add/" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <p>Description</p>
+        <input class="description_input" type="text" name="description">
+    </div>
+    <div class="row">
+        <p>Status</p>
+        <select class="status_select" name="status">
+            <option value="new">new</option>
+            <option value="in process">in process</option>
+            <option value="done">done</option>
+        </select>
+    </div>
+    <div class="row">
+        <p>Deadline</p>
+        <input class="deadline_input" type="date" name="deadline">
+    </div>
+    <div class="row">
+        <p>Full Description</p>
+        <input class="full_description_input" type="text" name="full_description">
+    </div>
+    <button class="create_button" type="submit">Create</button>
+</form>

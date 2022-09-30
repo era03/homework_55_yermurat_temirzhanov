@@ -1,0 +1,34 @@
+<form action="/add/" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <p>Description</p>
+        <input class="description_input" type="text" value="{{to_do.description}}" name="description">
+    </div>
+    <div class="row">
+        <p>Status</p>
+        <select class="status_select" name="status">
+            {% if to_do.status == 'new'%}
+            <option value="new">new</option>
+            <option value="in process">in process</option>
+            <option value="done">done</option>
+            {% elif to_do.status == 'in process'%}
+            <option value="in process">in process</option>
+            <option value="new">new</option>
+            <option value="done">done</option>
+            {% else %}
+            <option value="done">done</option>
+            <option value="new">new</option>
+            <option value="in process">in process</option>
+            {% endif %}
+        </select>
+    </div>
+    <div class="row">
+        <p>Deadline</p>
+        <input class="deadline_input" type="date" value="{{to_do.deadline}}" name="deadline">
+    </div>
+    <div class="row">
+        <p>Full Description</p>
+        <input class="full_description_input" value="{{to_do.full_description}}" type="text" name="full_description">
+    </div>
+    <button class="create_button" type="submit">Create</button>
+</form>
